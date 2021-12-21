@@ -1,7 +1,7 @@
 import useSwr from "swr";
 
 import React from "react";
-import { Spinner } from "@chakra-ui/react";
+import { Spinner, Container } from "@chakra-ui/react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
@@ -12,17 +12,19 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Home: React.FC = () => {
   const { data: coins, error } = useSwr("/api/coins", fetcher);
-  if (error) return <div>Failed to load users</div>;
+  if (error) return <div>Failed to load coins</div>;
 
   if (!coins)
     return (
-      <Spinner
-        thickness="4px"
-        speed="0.65s"
-        emptyColor="gray.200"
-        color="brand.500"
-        size="xl"
-      />
+      <Container maxW="container.lg" centerContent >
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="brand.500"
+          size="xl"
+        />
+      </Container>
     );
 
   console.log("coins: ", coins);
@@ -34,7 +36,9 @@ const Home: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <CoinsList coins={coins} />
+      <Container maxW="container.lg" centerContent>
+        <CoinsList coins={coins} />
+      </Container>
     </div>
   );
 };

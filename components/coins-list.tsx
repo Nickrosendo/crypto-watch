@@ -11,11 +11,17 @@ import {
   StatArrow,
 } from "@chakra-ui/react";
 
+export interface CoinUpdate {
+  type: "increase" | "decrease";
+  percentage: number;
+}
+
 export interface CoinItem {
   id: string;
   image: string;
   price: number;
   currency: string;
+  update: CoinUpdate;
   name: string;
 }
 
@@ -25,7 +31,17 @@ export interface CoinsListProps {
 
 export const CoinsList: React.FC<CoinsListProps> = ({ coins = [] }) => {
   return (
-    <Grid templateColumns="repeat(5, 1fr)" gap={6} my="4">
+    <Grid
+      templateColumns={{
+        lg: 'repeat(4, 1fr)',
+        md: 'repeat(3, 1fr)',
+        sm: 'repeat(2, 1fr)',
+        base: 'repeat(1, 1fr)',
+      }}
+      gap={6}
+      my="4"
+      title="coins-list-container"
+    >
       {coins.map((coin) => (
         <Flex
           key={coin.id}
@@ -38,14 +54,17 @@ export const CoinsList: React.FC<CoinsListProps> = ({ coins = [] }) => {
           alignItems="center"
           justifyItems="center"
           padding="4"
+          title={`${coin.id}-coin-list-item`}
         >
           <Image src={coin.image} alt={`${coin.id} coin image`} w="50" h="50" />
           <Stat mt="1">
             <StatLabel>{coin.name}</StatLabel>
-            <StatNumber>$ {coin.price}</StatNumber>
+            <StatNumber>
+              {coin.currency} {coin.price}
+            </StatNumber>
             <StatHelpText>
-              <StatArrow type="increase" />
-              23.36%
+              <StatArrow type={coin.update.type} />
+              {coin.update.percentage} %
             </StatHelpText>
           </Stat>
         </Flex>
