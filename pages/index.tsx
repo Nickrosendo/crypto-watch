@@ -1,6 +1,5 @@
 import React from "react";
 import useSwr from "swr";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Container, Alert, AlertIcon } from "@chakra-ui/react";
 import Head from "next/head";
 import Image from "next/image";
@@ -74,8 +73,7 @@ const Home: React.FC<HomeProps> = ({ cookies = "" }) => {
 export async function getServerSideProps({ req, locale }) {
   return {
     props: {
-      cookies: req.headers.cookie ?? "",
-      ...(await serverSideTranslations(locale, ["common"])),
+      cookies: req.headers.cookie ?? ""
     },
   };
 }

@@ -12,7 +12,6 @@ import {
 } from "@chakra-ui/react";
 
 import { MdSearch } from "react-icons/md";
-import { useTranslation } from "next-i18next";
 
 import { KeyBindings } from "@root/components";
 
@@ -39,7 +38,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     }
   });
 
-  const { t } = useTranslation();
   return (
     <Container>
       <InputGroup>
@@ -48,7 +46,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         </InputLeftElement>
         <Input
           ref={inputRef}
-          placeholder={t("search-bar.input.placeholder")}
+          placeholder={'Search me'}
           onChange={onSearch}
           type="text"
         />
