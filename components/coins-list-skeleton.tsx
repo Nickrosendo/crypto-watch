@@ -41,7 +41,6 @@ export const CoinsListSkeleton: React.FC = () => {
       {skeletons.map((skeleton) => (
         <Box
           key={skeleton.id}
-          padding="6"
           boxShadow="lg"
           borderWidth=".25rem"
           borderRadius="md"

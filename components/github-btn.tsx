@@ -3,12 +3,12 @@ import { IconButton, Icon } from '@chakra-ui/react';
 import { FaGithub } from 'react-icons/fa';
 
 export interface GithubBtnProps {
-	repository: string;
-	size: 'sm' | 'md' | 'lg';
+	repository?: string;
+	size?: 'sm' | 'md' | 'lg';
 }
 
 export const GithubBtn: React.FC<GithubBtnProps> = ({
-	repository = '',
+	repository = 'crypto-watch',
 	size = 'md',
 }) => {
 	const githubUrl = 'https://github.com/nickrosendo';

@@ -41,7 +41,8 @@ const Home: React.FC<HomeProps> = ({ cookies = "" }) => {
     );
 
   const handleSearch = (event: Event) => {
-    const searchValue = event?.target?.value;
+    const target = event?.target as HTMLInputElement;
+    const searchValue = target?.value;
     if (searchValue) {
       setSearch(searchValue);
     } else {

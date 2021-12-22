@@ -3,8 +3,8 @@ import { IconButton, Icon } from "@chakra-ui/react";
 import { SiBuymeacoffee } from "react-icons/si";
 
 export interface BuyMeACoffeBtnProps {
-  profile: string;
-  size: "sm" | "md" | "lg";
+  profile?: string;
+  size?: "sm" | "md" | "lg";
 }
 
 export const BuyMeACoffeBtn: React.FC<BuyMeACoffeBtnProps> = ({

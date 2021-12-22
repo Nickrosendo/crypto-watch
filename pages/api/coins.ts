@@ -3,7 +3,7 @@ import CoinGecko from "coingecko-api";
 
 const CoinGeckoClient = new CoinGecko();
 
-const parseUpdateType: string = (updateAmount: number) => {
+const parseUpdateType: (updateAmount: number) => string = (updateAmount) => {
   return updateAmount > 0 ? "increase" : "decrease";
 };
 

@@ -18,7 +18,7 @@ import { KeyBindings } from "@root/components";
 
 export interface SearchBarProps {
   searchKeys?: Array<string>;
-  onSearch: () => void;
+  onSearch?: any;
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({
