@@ -1,0 +1,54 @@
+{
+	"accesibility-settings": {
+		"text-configuration": {
+			"title": "Text configuration",
+			"label": "Font size",
+			"placeholder": "16px"
+		},
+		"contrast-configuration": {
+			"label": "High contrast mode"
+		},
+		"colorblind-mode": {
+			"label": "ColorBlind mode"
+		}
+	},
+	"vim-mode-settings": {
+		"label": "Vim mode"
+	},
+	"search-bar": {
+		"input": {
+			"placeholder": "Search me"
+		}
+	},
+	"header-menu": {
+		"drawer": {
+			"items": {
+				"projects": {
+					"title": "Projects",
+					"sections": {
+						"front-end": {
+							"title": "FrontEnd"
+						},
+						"back-end": {
+							"title": "BackEnd"
+						},
+						"infra": {
+							"title": "DevOps"
+						}
+					}
+				},
+				"knowledge": {
+					"title": "Knowledge"
+				},
+				"bio": {
+					"title": "Bio"
+				}
+			}
+		}
+	},
+	"bio": {
+		"name": "Nicolas Rosendo",
+		"jobtitle": "Senior Javascript Engineer",
+		"greetings": "Hi, i'm a Developer from Brazil, with 4 years of experience as a software developer, passionate about creating products and through technology change people's lives."
+	}
+}

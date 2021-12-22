@@ -14,7 +14,6 @@ const parsePriceChange = (priceChange: number) => {
 export default async function handler(req, res) {
   const { data, success, code } = await CoinGeckoClient.coins.all();
   if (success) {
-    console.log("data: ", data);
     const parsedCoinData = data.map((rawCoin) => ({
       id: rawCoin.id,
       image: rawCoin.image.large,
@@ -28,6 +27,7 @@ export default async function handler(req, res) {
         ),
       },
     }));
+
     res.status(200).json(parsedCoinData);
   } else {
     res.status(code).json([]);
