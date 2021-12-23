@@ -1,5 +1,4 @@
-import Script from "next/script";
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 export default class MyDocument extends Document {
   render() {
@@ -7,26 +6,25 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VSYMC6YQC"></script>
 
-          <Script
-            src="https://www.googletagmanager.com/gtag/js?id=G-6VSYMC6YQC"
-            strategy="afterInteractive"
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-6VSYMC6YQC'); 
+          `,
+            }}
           />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-6VSYMC6YQC');
-        `}
-          </Script>
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
