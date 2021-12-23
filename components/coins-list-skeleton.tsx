@@ -24,6 +24,14 @@ export const CoinsListSkeleton: React.FC = () => {
     { id: 5 },
     { id: 6 },
     { id: 7 },
+    { id: 8 },
+    { id: 9 },
+    { id: 10 },
+    { id: 11 },
+    { id: 12 },
+    { id: 13 },
+    { id: 14 },
+    { id: 15 },
   ];
   return (
     <Grid
@@ -35,8 +43,8 @@ export const CoinsListSkeleton: React.FC = () => {
       }}
       gap={6}
       my="4"
-      w="100%"
       title="coins-list-skeleton-container"
+      gridAutoRows="11.5rem"
     >
       {skeletons.map((skeleton) => (
         <Box
@@ -47,7 +55,7 @@ export const CoinsListSkeleton: React.FC = () => {
           padding="4"
           title={`${skeleton.id}-skeleton-list-item`}
           maxW="sm"
-          w="100%"
+          minW="11.5rem"
         >
           <SkeletonCircle size="50" margin="0 auto" />
           <SkeletonText mt="4" noOfLines={3} spacing="4" />

@@ -49,7 +49,11 @@ const Home: React.FC<HomeProps> = ({ cookies = "" }) => {
     }
   };
   const filteredCoins =
-    (search && coins.filter((coin) => coin.name.indexOf(search) > -1)) || coins;
+    (search &&
+      coins.filter(
+        (coin) => coin.name.toLowerCase().indexOf(search.toLowerCase()) > -1
+      )) ||
+    coins;
 
   return (
     <ThemeContainer cookies={cookies}>
@@ -73,7 +77,7 @@ const Home: React.FC<HomeProps> = ({ cookies = "" }) => {
 export async function getServerSideProps({ req, locale }) {
   return {
     props: {
-      cookies: req.headers.cookie ?? ""
+      cookies: req.headers.cookie ?? "",
     },
   };
 }

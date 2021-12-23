@@ -41,6 +41,7 @@ export const CoinsList: React.FC<CoinsListProps> = ({ coins = [] }) => {
       gap={6}
       my="4"
       title="coins-list-container"
+      gridAutoRows="11.5rem"
     >
       {coins.map((coin) => (
         <Flex
@@ -55,6 +56,7 @@ export const CoinsList: React.FC<CoinsListProps> = ({ coins = [] }) => {
           justifyItems="center"
           padding="4"
           title={`${coin.id}-coin-list-item`}
+          minW="11.5rem"
         >
           <Image src={coin.image} alt={`${coin.id} coin image`} w="50" h="50" />
           <Stat mt="1">
