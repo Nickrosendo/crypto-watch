@@ -9,19 +9,15 @@ import {
   StatNumber,
   StatHelpText,
   StatArrow,
+  Avatar,
 } from "@chakra-ui/react";
-
-export interface CoinUpdate {
-  type: "increase" | "decrease";
-  percentage: number;
-}
+import { FaMoneyBill } from "react-icons/fa";
 
 export interface CoinItem {
   id: string;
   image: string;
   price: number;
   currency: string;
-  update: CoinUpdate;
   name: string;
 }
 
@@ -58,16 +54,12 @@ export const CoinsList: React.FC<CoinsListProps> = ({ coins = [] }) => {
           title={`${coin.id}-coin-list-item`}
           minW="11.5rem"
         >
-          <Image src={coin.image} alt={`${coin.id} coin image`} w="50" h="50" />
+          {coin.image ? (<Image src={coin.image} alt={`${coin.id} coin image`} w="3rem" h="3rem" />) : <Avatar size="md" icon={<FaMoneyBill />} />}
           <Stat mt="1">
             <StatLabel>{coin.name}</StatLabel>
             <StatNumber>
               {coin.currency} {coin.price}
             </StatNumber>
-            <StatHelpText>
-              <StatArrow type={coin.update.type} />
-              {coin.update.percentage} %
-            </StatHelpText>
           </Stat>
         </Flex>
       ))}
